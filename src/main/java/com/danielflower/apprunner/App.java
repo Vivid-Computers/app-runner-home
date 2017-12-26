@@ -7,6 +7,7 @@ import org.eclipse.jetty.server.*;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.handler.ResourceHandler;
+import org.eclipse.jetty.server.handler.SecuredRedirectHandler;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -40,7 +41,7 @@ public class App {
             // When run from app-runner, you must use the port set in the environment variable APP_PORT
             int port = Integer.parseInt(settings.getOrDefault("APP_PORT", "8081"));
             // All URLs must be prefixed with the app name, which is got via the APP_NAME env var.
-            String appName = settings.getOrDefault("APP_NAME", "app-runner-home");
+            String appName = settings.getOrDefault("APP_NAME", "home");
 
             start(isLocal, port, appName, dataDir, tempDir);
         } catch (Exception e) {
@@ -69,6 +70,11 @@ public class App {
         TemplateEngine engine = createTemplateEngine(isLocal);
 
         String contextPath = "/" + appName;
+
+        if (!isLocal) {
+            handlers.addHandler(new SecuredRedirectHandler());
+        }
+
         addScreenshotHandlerIfPhantomJSIsAvailable(new File(dataDir, "screenshots"), tempDir, handlers, contextPath);
         handlers.addHandler(toContext(new HomeController(client, engine), contextPath));
         handlers.addHandler(toContext(resourceHandler(isLocal), contextPath));
@@ -76,7 +82,7 @@ public class App {
 
 
         if (isLocal) {
-            handlers.addHandler(createTRP("https://localhost:8443", client));
+            handlers.addHandler(createTRP("https://apprunner.co.nz", client));
         }
         jettyServer.setHandler(handlers);
 

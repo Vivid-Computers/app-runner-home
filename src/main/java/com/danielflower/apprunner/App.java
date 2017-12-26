@@ -72,19 +72,19 @@ public class App {
 
         String contextPath = "/" + appName;
 
-        handlers.addHandler(new AbstractHandler() {
+        handlers.addHandler(toContext(new AbstractHandler() {
             @Override
             public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
                 Enumeration<String> headerNames = request.getHeaderNames();
-                System.out.println(request.getRequestURI());
+                log.info(request.getRequestURI());
                 while (headerNames.hasMoreElements()) {
                     String key = headerNames.nextElement();
-                    System.out.println("   "+ key + "=" + request.getHeader(key));
+                    log.info("   "+ key + "=" + request.getHeader(key));
                 }
             }
-        });
+        }, contextPath));
         if (!isLocal) {
-            handlers.addHandler(new ApprunnerUrlNormalisationRedirector());
+            handlers.addHandler(toContext(new ApprunnerUrlNormalisationRedirector(), contextPath));
         }
 
         addScreenshotHandlerIfPhantomJSIsAvailable(new File(dataDir, "screenshots"), tempDir, handlers, contextPath);

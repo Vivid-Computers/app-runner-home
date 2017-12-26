@@ -72,17 +72,6 @@ public class App {
 
         String contextPath = "/" + appName;
 
-        handlers.addHandler(toContext(new AbstractHandler() {
-            @Override
-            public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-                Enumeration<String> headerNames = request.getHeaderNames();
-                log.info(request.getRequestURI());
-                while (headerNames.hasMoreElements()) {
-                    String key = headerNames.nextElement();
-                    log.info("   "+ key + "=" + request.getHeader(key));
-                }
-            }
-        }, contextPath));
         if (!isLocal) {
             handlers.addHandler(toContext(new ApprunnerUrlNormalisationRedirector(), contextPath));
         }

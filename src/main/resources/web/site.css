@@ -5,10 +5,10 @@ body {
 }
 
 header {
-    border: 5px solid #ffe44a;
+    border: 5px solid #2e2e2e;
     border-right-width: 0;
     border-left-width: 0;
-    background-color: #ffb340;
+    background-color: #8fbb1c;
     margin: 0;
     padding: 5px 30px 5px 5px;
     color: White;
@@ -43,7 +43,7 @@ footer {
     padding: 10px;
     text-align: center;
     font-style: italic;
-    border-top: solid 1px #ffe44a;
+    border-top: solid 1px #2e2e2e;
 }
 
 footer a, footer a:visited {
@@ -93,7 +93,7 @@ footer a, footer a:visited {
 
 .app-item .links a {
     color: #000000;
-    background-color: rgba(255, 228, 74, 0.5);
+    background-color: rgba(143, 187, 28, 0.5);
     border-radius: 10px;
     padding: 10px;
     text-decoration: none;
@@ -129,7 +129,7 @@ footer a, footer a:visited {
 
 .app-screenshot img {
     width: 100%;
-    border: solid 1px #ffb340;
+    border: solid 1px #8fbb1c;
 }
 
 .not-running {
@@ -142,14 +142,14 @@ footer a, footer a:visited {
 }
 
 .systemTable th {
-    background-color: #ffe44a;
+    background-color: #2e2e2e;
 }
 .systemTable.error th {
     background-color: Red;
 }
 
 .systemTable th, .systemTable td {
-    border: 1px solid #ffb340;
+    border: 1px solid #8fbb1c;
     text-align: left;
     padding: 5px;
 }

@@ -18,10 +18,14 @@ import org.thymeleaf.templateresolver.AbstractConfigurableTemplateResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import org.thymeleaf.templateresolver.FileTemplateResolver;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.Map;
 
 public class App {
@@ -68,6 +72,17 @@ public class App {
 
         String contextPath = "/" + appName;
 
+        handlers.addHandler(new AbstractHandler() {
+            @Override
+            public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+                Enumeration<String> headerNames = request.getHeaderNames();
+                System.out.println(request.getRequestURI());
+                while (headerNames.hasMoreElements()) {
+                    String key = headerNames.nextElement();
+                    System.out.println("   "+ key + "=" + request.getHeader(key));
+                }
+            }
+        });
         if (!isLocal) {
             handlers.addHandler(new ApprunnerUrlNormalisationRedirector());
         }

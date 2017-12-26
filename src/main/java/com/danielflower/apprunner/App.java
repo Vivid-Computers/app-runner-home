@@ -4,10 +4,7 @@ import org.apache.commons.io.FileUtils;
 import org.eclipse.jetty.client.HttpClient;
 import org.eclipse.jetty.proxy.AsyncProxyServlet;
 import org.eclipse.jetty.server.*;
-import org.eclipse.jetty.server.handler.ContextHandler;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.server.handler.ResourceHandler;
-import org.eclipse.jetty.server.handler.SecuredRedirectHandler;
+import org.eclipse.jetty.server.handler.*;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
@@ -72,7 +69,7 @@ public class App {
         String contextPath = "/" + appName;
 
         if (!isLocal) {
-            handlers.addHandler(new SecuredRedirectHandler());
+            handlers.addHandler(new ApprunnerUrlNormalisationRedirector());
         }
 
         addScreenshotHandlerIfPhantomJSIsAvailable(new File(dataDir, "screenshots"), tempDir, handlers, contextPath);

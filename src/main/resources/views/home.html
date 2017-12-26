@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>App Runner Launch Pad</title>
+    <title>Vivid App Runner</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="site.css">
 </head>
@@ -14,16 +14,32 @@
 <main>
 
     <div style="text-align: center">
-        <img src="/home/vivid-logo-small.jpg" alt="Vivid Computers logo" style="width: 250px; height: 130px;vertical-align:middle">
+        <img src="/home/vivid-logo-small.jpg" alt="Vivid Computers logo"
+             style="width: 250px; height: 130px;vertical-align:middle">
         Your self hosted platform-as-a-service
     </div>
 
-    <p>Vivid App Runner is a Platform-as-a-Service (PAAS) that designed to maximise collaboration and innovation.
+    <p>Vivid App Runner is a Platform-as-a-Service (PaaS) that is designed to maximise collaboration and innovation.
 
         It hosts Java, Node, and golang web-apps. After some simple set up, just push changes to
         the app's git repo and it will automatically be built and deployed here.</p>
+    <p>Vivid App Runner can be delivered in two ways: as a public cloud service hosted by us, where you can control
+        software deployment with minimal configuration required and we provide the server and network connectivity,
+        storage and ongoing support of the infrastructure), or as a private service (software or appliance) hosted inside the
+        your own network.</p>
+    <p>We are open to discussing your requirements as to how best deliver the system to you.</p>
+    <p>Examples of benefits and features of App Runner where already in use:</p>
+    <ul>
+        <li>Unlock innovation within your organisation by removing barriers in building, deploying and sharing new apps</li>
+        <li>Create and deploy a new web-app in seconds</li>
+        <li>Centralise and provide a dashboard for easy discovery of apps created by developers throughout an organisation</li>
+        <li>Scalable - can support hundreds of applications and easily able to be scaled using App Runner Router.</li>
+        <li>Encourages collaboration by making apps discoverable and trivial to contribute to.</li>
+</ul>
+
 
     <h2>Apps</h2>
+    <p>Here are some demo apps:</p>
 
     <div class="app-errors" th:if="${not #lists.isEmpty(errors)}">
         <strong>WARNING! Not all apps are listed:</strong>

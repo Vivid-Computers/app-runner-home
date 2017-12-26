@@ -1,18 +1,15 @@
-body {
+html, body {
     margin: 0;
     padding: 0;
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Raleway', Arial, sans-serif;
 }
 
 header {
-    border: 5px solid #2e2e2e;
-    border-right-width: 0;
-    border-left-width: 0;
-    background-color: #8fbb1c;
+    background-color: #98bf0c;
     margin: 0;
-    padding: 5px 30px 5px 5px;
+    padding: 0px 30px;
     color: White;
-    line-height: 20pt;
+    line-height: 45px;
 }
 
 header h1 {
@@ -28,8 +25,12 @@ header a, header a:visited {
     color: White;
     text-decoration: none;
 }
+header a:hover {
+    color: #DDDDDD;
+}
 
 header nav a {
+    font-weight: bold;
     padding-left: 10px;
     padding-right: 10px;
 }
@@ -39,10 +40,12 @@ main {
 }
 
 footer {
+    color: #545454;
+    font-size: smaller;
+    background-color: #111111;
+    text-transform: uppercase;
     margin-top: 100px;
     padding: 10px;
-    text-align: center;
-    font-style: italic;
     border-top: solid 1px #2e2e2e;
 }
 
@@ -142,6 +145,7 @@ footer a, footer a:visited {
 }
 
 .systemTable th {
+    color: #FFFFFF;
     background-color: #8fbb1c;
 }
 .systemTable.error th {

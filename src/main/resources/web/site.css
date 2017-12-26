@@ -142,14 +142,14 @@ footer a, footer a:visited {
 }
 
 .systemTable th {
-    background-color: #2e2e2e;
+    background-color: #8fbb1c;
 }
 .systemTable.error th {
     background-color: Red;
 }
 
 .systemTable th, .systemTable td {
-    border: 1px solid #8fbb1c;
+    border: 1px solid #2e2e2e;
     text-align: left;
     padding: 5px;
 }
